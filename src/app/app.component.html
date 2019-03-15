@@ -5,7 +5,7 @@
     <div class="col-md-12">
 
       <app-recipes *ngIf="clickedHeader === 'Recipes'"></app-recipes>
-      <app-shopping-list *ngIf="clickedHeader === 'Shopping List'"></app-shopping-list>
+      <app-shopping-list *ngIf="clickedHeader !== 'Recipes'"></app-shopping-list>
     </div>
   </div>
 </div>
