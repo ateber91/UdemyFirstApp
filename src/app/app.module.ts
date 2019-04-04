@@ -1,3 +1,5 @@
+import { ShopingListService } from './shopping-list/shoping-list.service';
+import { BasicHighlightDirective } from './basic-highlight/basic-highlight-directive';
 import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,6 +12,8 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { BetterHighlightDirective } from './basic-highlight/better-highlight.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,16 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     RecipesComponent,
     RecipeDetailsComponent,
     RecipeListComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ShopingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,10 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'CourseApp';
-  @Input() clickedHeader: string = "";
+  @Input() clickedHeader = '';
 
   clickedHeaderFunc(text: string) {
-    console.log(text);
     this.clickedHeader = text;
   }
 }
