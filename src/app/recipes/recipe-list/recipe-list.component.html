@@ -1,14 +1,19 @@
 <div>
-    <div class="col-xs-12">
-        <button class="btn btn-success btn-outline">
-        New Recipe
-        </button></div>
+  <div class="col-xs-12">
+    <button class="btn btn-success btn-outline">
+      New Recipe
+    </button>
+  </div>
 </div>
-<hr/><hr/><hr/>
+<hr />
+<hr />
+<hr />
 <div class="row">
-    <div class="col-xs-12">
-        <app-recipe-item *ngFor="let item of recipes" [currentRecipe] = "item"></app-recipe-item>
-    </div>
+  <div class="col-xs-12">
+    <app-recipe-item
+      *ngFor="let item of recipes; let i = index"
+      [routerLink]="['/recipes', i]"
+      routerLinkActive="router-link-active"
+    ></app-recipe-item>
+  </div>
 </div>
-
-<div><a href=""><span class="picture"></span></a></div>

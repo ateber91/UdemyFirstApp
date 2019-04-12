@@ -7,36 +7,35 @@ import { Ingredient } from '../shared/ingredient.model';
   providedIn: 'root'
 })
 export class RecipeService {
-
   recipeSelected = new EventEmitter<Recipe>();
 
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe(
       'Recipe for Chicken and Sausage',
       'This is test recipe',
       'https://www.gimmesomeoven.com/wp-content/uploads/2014/03/Cajun-Jambalaya-Recipe-with-Andouille-Sausage-Shrimp-and-Chicken-32.jpg',
-      [
-        new Ingredient('Chicken breast', 1)
-      ]
+      [new Ingredient('Chicken breast', 1)]
     ),
     new Recipe(
       'Recipe for Burrito',
       'This is test recipe2',
       'https://www.dinneratthezoo.com/wp-content/uploads/2017/12/meal-prep-burrito-bowls.jpg',
-      [
-        new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 1)
-      ]
+      [new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 1)]
     )
   ];
 
-  constructor(private slService: ShopingListService) { }
+  constructor(private slService: ShopingListService) {}
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number) {
+    let tempArr = this.getRecipes();
+    return tempArr[id];
   }
 
   addIngredientsToshopingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 }
-

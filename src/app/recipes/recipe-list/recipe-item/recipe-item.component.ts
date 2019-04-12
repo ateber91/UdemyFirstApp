@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 import { RecipeService } from '../../recipe.service';
@@ -8,14 +9,16 @@ import { RecipeService } from '../../recipe.service';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() currentRecipe: Recipe;
+  currentRecipe: Recipe;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-  }
-
-  onItemSelected() {
-    this.recipeService.recipeSelected.emit(this.currentRecipe);
+    const id = +this.route.snapshot.params['id'];
+    console.log(this.route.snapshot);
+    this.currentRecipe = this.recipeService.getRecipe(id);
   }
 }

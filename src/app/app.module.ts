@@ -14,6 +14,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { BetterHighlightDirective } from './basic-highlight/better-highlight.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NotingToShowComponent } from './noting-to-show/noting-to-show.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
     RecipeItemComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    DropdownDirective
+    DropdownDirective,
+    NotFoundComponent,
+    NotingToShowComponent
   ],
   imports: [
     BrowserModule,
