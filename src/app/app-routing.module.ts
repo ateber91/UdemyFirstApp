@@ -6,6 +6,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotingToShowComponent } from './noting-to-show/noting-to-show.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 
 const routes: Routes = [
   {
@@ -18,14 +20,13 @@ const routes: Routes = [
     component: RecipesComponent,
     children: [
       {
-        path: ':id',
-        component: RecipeItemComponent
-      },
-      {
         path: '',
         component: NotingToShowComponent,
-        data: { message: 'Please select recipe!' },
-        pathMatch: 'full'
+        data: { message: 'Please select recipe!' }
+      },
+      {
+        path: ':id',
+        component: RecipeDetailsComponent
       }
     ]
   },

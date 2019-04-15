@@ -11,9 +11,7 @@
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item
-      *ngFor="let item of recipes; let i = index"
-      [routerLink]="['/recipes', i]"
-      routerLinkActive="router-link-active"
-    ></app-recipe-item>
+      *ngFor="let item of recipes; let i = index" [currentRecipe]="item" [index]="i">
+    </app-recipe-item>
   </div>
 </div>

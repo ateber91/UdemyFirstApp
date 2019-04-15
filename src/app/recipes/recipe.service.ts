@@ -31,8 +31,7 @@ export class RecipeService {
   }
 
   getRecipe(id: number) {
-    let tempArr = this.getRecipes();
-    return tempArr[id];
+    return this.recipes.slice()[id];
   }
 
   addIngredientsToshopingList(ingredients: Ingredient[]) {
