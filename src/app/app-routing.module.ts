@@ -1,13 +1,12 @@
-import { Recipe } from './recipes/recipe.model';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { NotingToShowComponent } from './noting-to-show/noting-to-show.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const routes: Routes = [
   {
@@ -24,9 +23,17 @@ const routes: Routes = [
         component: NotingToShowComponent,
         data: { message: 'Please select recipe!' }
       },
+          {
+            path: 'new',
+            component: RecipeEditComponent
+          },
       {
         path: ':id',
         component: RecipeDetailsComponent
+      },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent
       }
     ]
   },
