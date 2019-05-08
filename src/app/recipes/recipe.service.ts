@@ -1,5 +1,5 @@
 import { ShopingListService } from './../shopping-list/shoping-list.service';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RecipeService {
+export class RecipeService implements OnDestroy {
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -41,6 +41,11 @@ export class RecipeService {
     this.recipeListChanged.next(this.recipes.slice());
   }
 
+  deleteRecipe(id: number) {
+    this.recipes.splice(id, 1);
+    this.recipeListChanged.next(this.recipes.slice());
+  }
+
   updateRecipe(id: number, newRecipe: Recipe) {
     this.recipes[id] = newRecipe;
     this.recipeListChanged.next(this.recipes.slice());
@@ -48,5 +53,9 @@ export class RecipeService {
 
   addIngredientsToshopingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
+  }
+
+  ngOnDestroy(): void {
+    this.recipeListChanged.unsubscribe();
   }
 }

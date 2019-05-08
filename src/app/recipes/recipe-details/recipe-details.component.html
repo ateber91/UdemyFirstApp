@@ -26,8 +26,8 @@
             >To Shopping List</a
           >
         </li>
-        <li><a style="cursor: pointer;" [routerLink]="['/recipes', id, 'edit']" routerLinkActive="router-link-active" >Edit Recipe</a></li>
-        <li><a style="cursor: pointer;">Delete Recipe</a></li>
+        <li><a style="cursor: pointer;" [routerLink]="['/recipes', id, 'edit']" routerLinkActive="router-link-active">Edit Recipe</a></li>
+        <li><a style="cursor: pointer;" [routerLink]="['/recipes']" (click)="onDeleteRecipe(id)">Delete Recipe</a></li>
       </ul>
     </div>
   </div>

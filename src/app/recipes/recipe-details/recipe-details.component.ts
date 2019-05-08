@@ -26,4 +26,10 @@ export class RecipeDetailsComponent implements OnInit {
   onAddToShoppingList(ingredients: Ingredient[]) {
     this.recipeService.addIngredientsToshopingList(ingredients);
   }
+
+  onDeleteRecipe(id: number) {
+    console.log(this.recipeService.getRecipes());
+    this.recipeService.deleteRecipe(id);
+    console.log(this.recipeService.getRecipes());
+  }
 }
