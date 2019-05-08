@@ -21,7 +21,7 @@
       <ul class="dropdown-menu">
         <li>
           <a
-            (click)="onAddToShoppingList(recipe.ingredient)"
+            (click)="onAddToShoppingList(recipe.ingredients)"
             style="cursor: pointer"
             >To Shopping List</a
           >
@@ -41,7 +41,7 @@
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of recipe.ingredient">
+      <li class="list-group-item" *ngFor="let item of recipe.ingredients">
         {{ item.name }} - {{ item.amount }}
       </li>
     </ul>

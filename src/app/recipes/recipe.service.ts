@@ -2,6 +2,7 @@ import { ShopingListService } from './../shopping-list/shoping-list.service';
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,11 @@ export class RecipeService {
       'Recipe for Burrito',
       'This is test recipe2',
       'https://www.dinneratthezoo.com/wp-content/uploads/2017/12/meal-prep-burrito-bowls.jpg',
-      [new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 1)]
+      [new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 2)]
     )
   ];
+
+  public recipeListChanged = new Subject<Recipe[]>();
 
   constructor(private slService: ShopingListService) {}
 
@@ -31,6 +34,16 @@ export class RecipeService {
 
   getRecipe(id: number) {
     return this.recipes.slice()[id];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeListChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(id: number, newRecipe: Recipe) {
+    this.recipes[id] = newRecipe;
+    this.recipeListChanged.next(this.recipes.slice());
   }
 
   addIngredientsToshopingList(ingredients: Ingredient[]) {
