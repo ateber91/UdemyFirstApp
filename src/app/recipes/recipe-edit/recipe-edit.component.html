@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-      <button type="button" class="btn btn-danger" [routerLink]="['/recipes']">Cancel</button>
+      <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -15,13 +15,13 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imgPath">Image URL</label>
-            <input type="text" name="imgPath" id="imgPath" class="form-control" formControlName="urlPath">
+            <input type="text" name="imgPath" id="imgPath" class="form-control" formControlName="urlPath" #imgPath>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="imagePreview" class="image-responsive">
+          <img [src]="imgPath.value" alt="imagePreview" class="image-responsive">
         </div>
       </div>
       <div class="row">
@@ -43,7 +43,7 @@
                 <input type="number" name="ingredientAmount" id="ingredientAmount" class="form-control" formControlName="amount">
               </div>
               <div class="col-xs-2">
-                <button class="btn btn-danger" type="button">X</button>
+                <button class="btn btn-danger" (click)="onIngredientDelete(id, i)" type="button">X</button>
               </div>
             </div>
             <hr>
