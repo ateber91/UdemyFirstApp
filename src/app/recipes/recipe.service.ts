@@ -1,41 +1,61 @@
 import { ShopingListService } from './../shopping-list/shoping-list.service';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
+import { Http } from '@angular/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+export class RecipeService implements OnDestroy {
+    private recipes: Recipe[] = [
+        new Recipe(
+            'Recipe for Chicken and Sausage',
+            'This is test recipe',
+            'https://www.gimmesomeoven.com/wp-content/uploads/2014/03/Cajun-Jambalaya-Recipe-with-Andouille-Sausage-Shrimp-and-Chicken-32.jpg',
+            [ new Ingredient('Chicken breast', 1) ]
+        ),
+        new Recipe(
+            'Recipe for Burrito',
+            'This is test recipe2',
+            'https://www.dinneratthezoo.com/wp-content/uploads/2017/12/meal-prep-burrito-bowls.jpg',
+            [ new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 2) ]
+        )
+    ];
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Recipe for Chicken and Sausage',
-      'This is test recipe',
-      'https://www.gimmesomeoven.com/wp-content/uploads/2014/03/Cajun-Jambalaya-Recipe-with-Andouille-Sausage-Shrimp-and-Chicken-32.jpg',
-      [new Ingredient('Chicken breast', 1)]
-    ),
-    new Recipe(
-      'Recipe for Burrito',
-      'This is test recipe2',
-      'https://www.dinneratthezoo.com/wp-content/uploads/2017/12/meal-prep-burrito-bowls.jpg',
-      [new Ingredient('Pita bread', 1), new Ingredient('Chicken meat', 1)]
-    )
-  ];
+    public recipeListChanged = new Subject<Recipe[]>();
 
-  constructor(private slService: ShopingListService) {}
+    constructor (private slService: ShopingListService, private http: Http) {}
 
-  getRecipes() {
-    return this.recipes.slice();
-  }
+    getRecipes () {
+        return this.recipes.slice();
+    }
 
-  getRecipe(id: number) {
-    let tempArr = this.getRecipes();
-    return tempArr[id];
-  }
+    getRecipe (id: number) {
+        return this.recipes.slice()[id];
+    }
 
-  addIngredientsToshopingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
-  }
+    addRecipe (recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipeListChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe (id: number) {
+        this.recipes.splice(id, 1);
+        this.recipeListChanged.next(this.recipes.slice());
+    }
+
+    updateRecipe (id: number, newRecipe: Recipe) {
+        this.recipes[id] = newRecipe;
+        this.recipeListChanged.next(this.recipes.slice());
+    }
+
+    addIngredientsToshopingList (ingredients: Ingredient[]) {
+        this.slService.addIngredients(ingredients);
+    }
+
+    ngOnDestroy (): void {
+        this.recipeListChanged.unsubscribe();
+    }
 }

@@ -1,3 +1,8 @@
 {
-    "typescript.suggest.completeFunctionCalls": true
+    "typescript.suggest.completeFunctionCalls": true,
+    "files.autoSave": "onWindowChange",
+    "eslint.autoFixOnSave": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "emmet.showSuggestionsAsSnippets": true
 }

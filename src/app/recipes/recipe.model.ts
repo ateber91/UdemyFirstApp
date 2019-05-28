@@ -3,17 +3,17 @@ export class Recipe {
   public name: string;
   public description: string;
   public urlPath: string;
-  public ingredient: Ingredient[];
+  public ingredients: Ingredient[];
 
   constructor(
     name: string,
     description: string,
     urlPath: string,
-    ingredient: Ingredient[]
+    ingredients: Ingredient[]
   ) {
     this.name = name;
     this.description = description;
     this.urlPath = urlPath;
-    this.ingredient = ingredient;
+    this.ingredients = ingredients;
   }
 }
