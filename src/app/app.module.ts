@@ -3,6 +3,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,29 +21,24 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight-direc
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ShoppingListComponent,
-    HeaderComponent,
-    ShoppingEditComponent,
-    RecipesComponent,
-    RecipeDetailsComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-    BasicHighlightDirective,
-    BetterHighlightDirective,
-    DropdownDirective,
-    NotFoundComponent,
-    NotingToShowComponent,
-    RecipeEditComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  providers: [ShopingListService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ShoppingListComponent,
+        HeaderComponent,
+        ShoppingEditComponent,
+        RecipesComponent,
+        RecipeDetailsComponent,
+        RecipeListComponent,
+        RecipeItemComponent,
+        BasicHighlightDirective,
+        BetterHighlightDirective,
+        DropdownDirective,
+        NotFoundComponent,
+        NotingToShowComponent,
+        RecipeEditComponent
+    ],
+    imports: [ BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpModule ],
+    providers: [ ShopingListService ],
+    bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}
