@@ -19,6 +19,7 @@ import { NotingToShowComponent } from './noting-to-show/noting-to-show.component
 import { BetterHighlightDirective } from './basic-highlight/better-highlight.directive';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight-directive';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
         DropdownDirective,
         NotFoundComponent,
         NotingToShowComponent,
-        RecipeEditComponent
+        RecipeEditComponent,
+        AuthComponent
     ],
     imports: [ BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpModule ],
     providers: [ ShopingListService ],
