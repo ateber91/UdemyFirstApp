@@ -1,21 +1,20 @@
-
-<div class="row" *ngIf="turnAuthOn">
+<div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <form>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-froup">
         <label for="email" class="email">Email</label>
-        <input type="email" id="email" class="form-control"/>
-    </div>
-    <div class="form-froup">
+        <input type="email" id="email" class="form-control" ngModel name="email" email required />
+      </div>
+      <div class="form-froup">
         <label for="password" class="password">Password</label>
-        <input type="password" id="password" class="form-control"/>
-    </div>
-    <div>
-      <button class="btn btn-primary">Sign up</button>
-        <button class="btn btn-primary">Swith to Log in</button>
-    </div>
+        <input type="password" id="password" class="form-control" ngModel name="password" required minlength="6" />
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit"
+          [disabled]="authForm.invalid">{{isLoginMode ? 'Login' : 'Sign up'}}</button>
+        <button class="btn btn-primary" (click)="onSwitchMode()"
+          type="button">{{isLoginMode ? 'Swith to Sign up' : 'Swith to Login'}}</button>
+      </div>
     </form>
   </div>
 </div>
-
-<div *ngIf="!turnAuthOn">Loading...</div>

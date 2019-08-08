@@ -3,7 +3,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { BetterHighlightDirective } from './basic-highlight/better-highlight.dir
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight-directive';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
+import { DataStorageService } from './shared/data-storage.service';
+import { from } from 'rxjs';
 
 @NgModule({
     declarations: [
@@ -39,8 +41,8 @@ import { AuthComponent } from './auth/auth.component';
         RecipeEditComponent,
         AuthComponent
     ],
-    imports: [ BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpModule ],
-    providers: [ ShopingListService ],
-    bootstrap: [ AppComponent ]
+    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule],
+    providers: [ShopingListService, DataStorageService],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

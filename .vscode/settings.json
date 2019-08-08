@@ -4,5 +4,17 @@
     "eslint.autoFixOnSave": true,
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single",
-    "emmet.showSuggestionsAsSnippets": true
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.minimap.enabled": false,
+    "workbench.list.horizontalScrolling": true,
+    "workbench.list.keyboardNavigation": "filter",
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.openPositioning": "left",
+    "workbench.editor.openSideBySideDirection": "down",
+    "workbench.editor.showTabs": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.sideBar.location": "right",
+    "editor.formatOnSave": true
 }

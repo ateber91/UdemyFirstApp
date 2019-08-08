@@ -8,6 +8,7 @@ import { NotingToShowComponent } from './noting-to-show/noting-to-show.component
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
+import { RecipeResolverService } from './recipes/recipes-resolver.service';
 
 const routes: Routes = [
     {
@@ -22,6 +23,7 @@ const routes: Routes = [
             {
                 path: '',
                 component: NotingToShowComponent,
+                resolve: [RecipeResolverService],
                 data: { message: 'Please select recipe!' }
             },
             {
@@ -30,11 +32,13 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                component: RecipeDetailsComponent
+                component: RecipeDetailsComponent,
+                resolve: [RecipeResolverService]
             },
             {
                 path: ':id/edit',
-                component: RecipeEditComponent
+                component: RecipeEditComponent,
+                resolve: [RecipeResolverService]
             }
         ]
     },
