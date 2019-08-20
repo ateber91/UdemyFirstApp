@@ -26,32 +26,12 @@ export class AuthService {
             {
                 email: email,
                 password: password,
-                returnSercureToken: true
+                returnSecureToken: true
             }
         ).pipe(catchError(this.handleError), tap(respData => {
             this.handleAuthResponse(respData.email, respData.localId, respData.idToken, +respData.expiresIn);
         }
         ));
-    }
-    signin(email: string, password: string) {
-      console.log('signin' + email + '   ' + password);
-        return this.httpClient.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDDVpcwt6pZSvru2kSO-EVoV-GSEBwL6RI',
-            {
-                email: email,
-                password: password,
-                returnSercureToken: true
-            }
-        ).pipe(
-            catchError(this.handleError),
-            tap(respData => {
-                this.handleAuthResponse(
-                    respData.email,
-                    respData.localId,
-                    respData.idToken,
-                    +respData.expiresIn);
-            })
-        );
     }
 
     login(email: string, password: string) {
