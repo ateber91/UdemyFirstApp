@@ -1,7 +1,7 @@
 {
   "typescript.suggest.completeFunctionCalls": true,
   "files.autoSave": "onWindowChange",
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "emmet.showSuggestionsAsSnippets": true,
@@ -19,7 +19,12 @@
   "workbench.editor.openSideBySideDirection": "down",
   "workbench.tree.indent": 12,
   "workbench.tree.renderIndentGuides": "always",
-"editor.foldingStrategy": "indentation",
-"prettier.tabWidth": 4,
-"editor.detectIndentation": false,
+  "editor.foldingStrategy": "indentation",
+  "prettier.tabWidth": 4,
+  "editor.detectIndentation": false,
+  "typescript.tsserver.log": "verbose",
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "prettier.useTabs": false
 }

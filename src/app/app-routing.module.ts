@@ -9,12 +9,13 @@ import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
 import { RecipeResolverService } from './recipes/recipes-resolver.service';
+import { AuthService } from './auth/auth.service';
 
 const routes: Routes = [
     {
         path: '',
         redirectTo: '/recipes',
-        pathMatch: 'full'
+        pathMatch: 'full',
     },
     {
         path: 'recipes',
@@ -23,50 +24,49 @@ const routes: Routes = [
             {
                 path: '',
                 component: NotingToShowComponent,
-                resolve: [RecipeResolverService],
-                data: { message: 'Please select recipe!' }
+                data: { message: 'Please select recipe!' },
             },
             {
                 path: 'new',
-                component: RecipeEditComponent
+                component: RecipeEditComponent,
             },
             {
                 path: ':id',
                 component: RecipeDetailsComponent,
-                resolve: [RecipeResolverService]
+                resolve: [RecipeResolverService],
             },
             {
                 path: ':id/edit',
                 component: RecipeEditComponent,
-                resolve: [RecipeResolverService]
-            }
-        ]
+                resolve: [RecipeResolverService],
+            },
+        ],
     },
     {
         path: 'shoping-list',
-        component: ShoppingListComponent
+        component: ShoppingListComponent,
     },
     {
         path: 'auth',
-        component: AuthComponent
+        component: AuthComponent,
     },
     {
         path: 'no-recipe',
         component: NotingToShowComponent,
-        data: { message: 'Please select recipe!' }
+        data: { message: 'Please select recipe!' },
     },
     {
         path: 'not-found',
-        component: NotFoundComponent
+        component: NotFoundComponent,
     },
     {
         path: '**',
-        redirectTo: '/not-found'
-    }
+        redirectTo: '/not-found',
+    },
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}
