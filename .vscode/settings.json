@@ -13,7 +13,7 @@
   "workbench.editor.openPositioning": "left",
   "workbench.editor.showTabs": false,
   "workbench.editor.tabSizing": "shrink",
-  "workbench.iconTheme": "vs-seti",
+  "workbench.iconTheme": "vscode-icon-theme",
   "workbench.sideBar.location": "right",
   "editor.formatOnSave": true,
   "workbench.editor.openSideBySideDirection": "down",

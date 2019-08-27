@@ -24,6 +24,8 @@ import { DataStorageService } from './shared/data-storage.service';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { AlertComponent } from './shared/alert/alert.component';
+import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
 
 @NgModule({
     declarations: [
@@ -42,11 +44,28 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
         NotingToShowComponent,
         RecipeEditComponent,
         AuthComponent,
-        LoadingSpinnerComponent
+        LoadingSpinnerComponent,
+        AlertComponent,
+        PlaceholderDirective,
     ],
-    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule],
-    providers: [ShopingListService, DataStorageService, RecipeService,
-       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
-    bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+    ],
+    providers: [
+        ShopingListService,
+        DataStorageService,
+        RecipeService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true,
+        },
+    ],
+    bootstrap: [AppComponent],
+    entryComponents: [AlertComponent],
 })
-export class AppModule { }
+export class AppModule {}
