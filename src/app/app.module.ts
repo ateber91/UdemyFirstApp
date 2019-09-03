@@ -9,23 +9,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { NotingToShowComponent } from './noting-to-show/noting-to-show.component';
 import { BetterHighlightDirective } from './basic-highlight/better-highlight.directive';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight-directive';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
-import { DataStorageService } from './shared/data-storage.service';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
+import { RecepiesModule } from './recipes/recipes.module';
 
 @NgModule({
     declarations: [
@@ -33,31 +27,25 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
         ShoppingListComponent,
         HeaderComponent,
         ShoppingEditComponent,
-        RecipesComponent,
-        RecipeDetailsComponent,
-        RecipeListComponent,
-        RecipeItemComponent,
         BasicHighlightDirective,
         BetterHighlightDirective,
         DropdownDirective,
         NotFoundComponent,
-        NotingToShowComponent,
-        RecipeEditComponent,
         AuthComponent,
         LoadingSpinnerComponent,
         AlertComponent,
         PlaceholderDirective,
     ],
+    exports: [],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
+        RecepiesModule,
+        AppRoutingModule,
     ],
     providers: [
-        ShopingListService,
-        DataStorageService,
         RecipeService,
         {
             provide: HTTP_INTERCEPTORS,

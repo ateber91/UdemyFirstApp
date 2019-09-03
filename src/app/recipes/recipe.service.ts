@@ -4,19 +4,15 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class RecipeService implements OnDestroy, OnInit {
-
     private recipes: Recipe[] = [];
 
     public recipeListChanged = new Subject<Recipe[]>();
 
-    constructor(private slService: ShopingListService) { }
+    constructor(private slService: ShopingListService) {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     getRecipes() {
         return this.recipes.slice();
