@@ -1,4 +1,3 @@
-import { HeaderComponent } from './header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,14 +5,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BetterHighlightDirective } from './basic-highlight/better-highlight.directive';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight-directive';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
-import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './header/header.component';
+import { ShoppingListService } from './shopping-list/shoping-list.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,7 @@ import { AuthModule } from './auth/auth.module';
     HeaderComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    DropdownDirective,
     NotFoundComponent,
-    AlertComponent,
   ],
   exports: [AlertComponent],
   imports: [
@@ -31,9 +29,11 @@ import { AuthModule } from './auth/auth.module';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [
+    ShoppingListService,
     RecipeService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -42,5 +42,6 @@ import { AuthModule } from './auth/auth.module';
     },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [AlertComponent],
 })
 export class AppModule {}

@@ -15,6 +15,7 @@ export class RecipeService implements OnDestroy, OnInit {
   ngOnInit(): void {}
 
   getRecipes() {
+    console.log(this.recipes);
     return this.recipes.slice();
   }
 
