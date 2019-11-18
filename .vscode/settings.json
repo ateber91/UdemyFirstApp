@@ -20,7 +20,7 @@
   "workbench.tree.indent": 12,
   "workbench.tree.renderIndentGuides": "always",
   "editor.foldingStrategy": "indentation",
-  "prettier.tabWidth": 4,
+  "prettier.tabWidth": 2,
   "editor.detectIndentation": false,
   "typescript.tsserver.log": "verbose",
   "prettier.jsxSingleQuote": true,

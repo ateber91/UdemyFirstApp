@@ -7,24 +7,36 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { NotingToShowComponent } from '../noting-to-show/noting-to-show.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { RecipeService } from './recipe.service';
+import { AuthInterceptorService } from '../auth/auth-interceptor.service';
+import { AlertComponent } from '../shared/alert/alert.component';
 
 @NgModule({
-    declarations: [
-        RecipesComponent,
-        RecipeDetailsComponent,
-        RecipeListComponent,
-        RecipeItemComponent,
-        RecipeEditComponent,
-        NotingToShowComponent,
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        RecipesRoutingModule,
-        FormsModule,
-        HttpClientModule,
-    ],
+  declarations: [
+    RecipesComponent,
+    RecipeDetailsComponent,
+    RecipeListComponent,
+    RecipeItemComponent,
+    RecipeEditComponent,
+    NotingToShowComponent,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RecipesRoutingModule,
+    FormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
+  entryComponents: [AlertComponent],
 })
-export class RecepiesModule {}
+export class RecipesModule {}
