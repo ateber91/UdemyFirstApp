@@ -6,13 +6,9 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RecipesRoutingModule } from './recipes-routing.module';
 import { NotingToShowComponent } from '../noting-to-show/noting-to-show.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { RecipeService } from './recipe.service';
-import { AuthInterceptorService } from '../auth/auth-interceptor.service';
-import { AlertComponent } from '../shared/alert/alert.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
