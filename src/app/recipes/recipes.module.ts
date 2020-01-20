@@ -11,20 +11,20 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    RecipesComponent,
-    RecipeDetailsComponent,
-    RecipeListComponent,
-    RecipeEditComponent,
-    RecipeItemComponent,
-    NotingToShowComponent,
-  ],
-  imports: [
-    ReactiveFormsModule,
-    RecipesRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    SharedModule,
-  ],
+    declarations: [
+        RecipesComponent,
+        RecipeDetailsComponent,
+        RecipeListComponent,
+        RecipeEditComponent,
+        RecipeItemComponent,
+        NotingToShowComponent
+    ],
+    imports: [
+        ReactiveFormsModule,
+        RecipesRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        SharedModule
+    ]
 })
 export class RecipesModule {}

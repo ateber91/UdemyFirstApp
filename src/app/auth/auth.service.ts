@@ -15,7 +15,7 @@ export interface AuthResponseData {
 }
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class AuthService {
     user = new BehaviorSubject<User>(null);
@@ -29,19 +29,19 @@ export class AuthService {
                 {
                     email: email,
                     password: password,
-                    returnSecureToken: true,
-                },
+                    returnSecureToken: true
+                }
             )
             .pipe(
                 catchError(this.handleError),
-                tap((respData) => {
+                tap(respData => {
                     this.handleAuthResponse(
                         respData.email,
                         respData.localId,
                         respData.idToken,
-                        +respData.expiresIn,
+                        +respData.expiresIn
                     );
-                }),
+                })
             );
     }
 
@@ -52,19 +52,19 @@ export class AuthService {
                 {
                     email: email,
                     password: password,
-                    returnSecureToken: true,
-                },
+                    returnSecureToken: true
+                }
             )
             .pipe(
                 catchError(this.handleError),
-                tap((resData) => {
+                tap(resData => {
                     this.handleAuthResponse(
                         resData.email,
                         resData.localId,
                         resData.idToken,
-                        +resData.expiresIn,
+                        +resData.expiresIn
                     );
-                }),
+                })
             );
     }
 
@@ -82,7 +82,7 @@ export class AuthService {
             userData.email,
             userData.id,
             userData._token,
-            new Date(userData._tokenExpirationDate),
+            new Date(userData._tokenExpirationDate)
         );
 
         if (loadedUser.token) {
@@ -115,10 +115,10 @@ export class AuthService {
         email: string,
         userId: string,
         idToken: string,
-        expiresIn: number,
+        expiresIn: number
     ) {
         const expirationDate = new Date(
-            new Date().getTime() + expiresIn * 1000,
+            new Date().getTime() + expiresIn * 1000
         );
         const user = new User(email, userId, idToken, expirationDate);
         this.user.next(user);

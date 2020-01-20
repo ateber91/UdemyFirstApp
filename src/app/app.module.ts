@@ -16,32 +16,32 @@ import { HeaderComponent } from './header/header.component';
 import { ShoppingListService } from './shopping-list/shoping-list.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    BasicHighlightDirective,
-    BetterHighlightDirective,
-    NotFoundComponent,
-  ],
-  exports: [AlertComponent],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    SharedModule,
-    AppRoutingModule,
-  ],
-  providers: [
-    ShoppingListService,
-    RecipeService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [AlertComponent],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        BasicHighlightDirective,
+        BetterHighlightDirective,
+        NotFoundComponent
+    ],
+    exports: [AlertComponent],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        SharedModule,
+        AppRoutingModule
+    ],
+    providers: [
+        ShoppingListService,
+        RecipeService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent],
+    entryComponents: [AlertComponent]
 })
 export class AppModule {}
