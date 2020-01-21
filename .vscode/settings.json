@@ -25,6 +25,7 @@
     "prettier.singleQuote": true,
     "prettier.printWidth": 80,
     "prettier.useTabs": false,
-    "vtools.autoHideBottomBar": true,
-    "vtools.autoHideSideBar": true
+    "vtools.autoHideBottomBar": false,
+    "vtools.autoHideSideBar": true,
+    "diffEditor.renderSideBySide": false
 }
