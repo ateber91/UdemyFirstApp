@@ -14,6 +14,8 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListService } from './shopping-list/shoping-list.service';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './shopping-list/shopping-list.reducer';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,7 @@ import { ShoppingListService } from './shopping-list/shoping-list.service';
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
+        StoreModule.forRoot({ shoppingList: shoppingListReducer }),
         SharedModule,
         AppRoutingModule
     ],

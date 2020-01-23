@@ -27,5 +27,8 @@
     "prettier.useTabs": false,
     "vtools.autoHideBottomBar": false,
     "vtools.autoHideSideBar": true,
-    "diffEditor.renderSideBySide": false
+    "diffEditor.renderSideBySide": false,
+    "prettier.disableLanguages": [
+        "html"
+    ],
 }
