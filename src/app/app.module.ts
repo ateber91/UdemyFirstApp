@@ -15,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListService } from './shopping-list/shoping-list.service';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/shopping-list.reducer';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 
 @NgModule({
     declarations: [

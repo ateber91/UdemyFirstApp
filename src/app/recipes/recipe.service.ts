@@ -3,6 +3,8 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 import { ShoppingListService } from '../shopping-list/shoping-list.service';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 
 @Injectable()
 export class RecipeService implements OnDestroy, OnInit {
@@ -10,7 +12,10 @@ export class RecipeService implements OnDestroy, OnInit {
 
     public recipeListChanged = new Subject<Recipe[]>();
 
-    constructor(private slService: ShoppingListService) {}
+    constructor(
+        private slService: ShoppingListService,
+        private store: Store<{ shopingList: { ingredients: Ingredient[] } }>
+    ) {}
 
     ngOnInit(): void {}
 
@@ -43,7 +48,9 @@ export class RecipeService implements OnDestroy, OnInit {
     }
 
     addIngredientsToshoppingList(ingredients: Ingredient[]) {
-        this.slService.addIngredients(ingredients);
+        this.store.dispatch(
+            new ShoppingListActions.AddIngredients(ingredients)
+        );
     }
 
     ngOnDestroy(): void {
