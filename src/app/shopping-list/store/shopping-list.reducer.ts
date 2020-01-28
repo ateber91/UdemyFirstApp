@@ -7,10 +7,6 @@ export interface State {
     editedIngredientIndex: number;
 }
 
-export interface AppState {
-    shoppingList: State;
-}
-
 export const initialState: State = {
     ingredients: [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 2)],
     editedIngredient: null,
@@ -53,19 +49,24 @@ export function shoppingListReducer(
                 ingredients: [...newIngredients]
             };
         case ShoppingListAction.UPDATE_INGREDIENT:
-            const ingredient = state.ingredients[action.payload.index];
+            const ingredient = state.ingredients[state.editedIngredientIndex];
+            const updatedIngredient = { ...ingredient, ...action.payload };
             const updatedIngredients = [...state.ingredients];
-            updatedIngredients[action.payload.index] = ingredient;
+            updatedIngredients[state.editedIngredientIndex] = updatedIngredient;
             return {
                 ...state,
-                ingredients: [...updatedIngredients]
+                ingredients: updatedIngredients,
+                editedIngredientIndex: -1,
+                editedIngredient: null
             };
         case ShoppingListAction.DELETE_INGREDIENT:
             const updatedIngr = [...state.ingredients];
-            updatedIngr.splice(action.payload, 1);
+            updatedIngr.splice(state.editedIngredientIndex, 1);
             return {
                 ...state,
-                ingredients: [...updatedIngr]
+                ingredients: [...updatedIngr],
+                editedIngredientIndex: -1,
+                editedIngredient: null
             };
         case ShoppingListAction.START_EDIT:
             console.log('Payload on START_EDIT: ' + action.payload);

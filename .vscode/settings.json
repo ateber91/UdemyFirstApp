@@ -10,7 +10,7 @@
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.openPositioning": "left",
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.sideBar.location": "right",
     "editor.formatOnSave": true,
@@ -31,16 +31,4 @@
     "prettier.disableLanguages": [
         "html"
     ],
-    "indentRainbow.colors": [
-        "rgba(255,255,255,0.05)",
-        "rgba(255,255,255,0.1)",
-        "rgba(255,255,255,0.15)",
-        "rgba(255,255,255,0.2)",
-        "rgba(255,255,255,0.25)",
-        "rgba(255,255,255,0.3)",
-        "rgba(255,255,255,0.35)",
-        "rgba(255,255,255,0.4)",
-        "rgba(255,255,255,0.45)",
-        "rgba(255,255,255,0.5)",
-    ]
 }
