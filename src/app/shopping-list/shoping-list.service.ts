@@ -8,7 +8,10 @@ import { Subject } from 'rxjs/internal/Subject';
 export class ShoppingListService implements OnInit {
     ingredientsChange = new Subject<Ingredient[]>();
     ingredientToEdit = new Subject<number>();
-    private ingredients: Ingredient[] = [new Ingredient('Apples', 5)];
+    private ingredients: Ingredient[] = [
+        new Ingredient('Apples', 5),
+        new Ingredient('Tomatoes', 2)
+    ];
     constructor() {}
 
     ngOnInit(): void {}
