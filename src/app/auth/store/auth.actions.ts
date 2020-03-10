@@ -17,8 +17,7 @@ export class Login implements Action {
 
 export class Logout implements Action {
     readonly type: string = LOGOUT;
+    constructor(public payload: any = null) {}
 }
 
-export type AuthActions =
-| Login
-| Logout;
+export type AuthActions = Login | Logout;

@@ -16,12 +16,11 @@ export function authReducer(
 ) {
     switch (action.type) {
         case AuthActions.LOGIN:
-            const a = action as Login;
             const user = new User(
-                a.payload.email,
-                a.payload.userId,
-                a.payload.token,
-                a.payload.expirationData
+                action.payload.email,
+                action.payload.userId,
+                action.payload.token,
+                action.payload.expirationData
             );
             return {
                 ...state,
@@ -29,7 +28,8 @@ export function authReducer(
             };
         case AuthActions.LOGOUT:
             return {
-                ...state
+                ...state,
+                user: null
             };
 
         default: {
