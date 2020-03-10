@@ -13,7 +13,6 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListService } from './shopping-list/shoping-list.service';
 import { StoreModule } from '@ngrx/store';
 import * as fromApp from 'src/app/store/app.reducer';
 
@@ -36,7 +35,6 @@ import * as fromApp from 'src/app/store/app.reducer';
         AppRoutingModule
     ],
     providers: [
-        ShoppingListService,
         RecipeService,
         {
             provide: HTTP_INTERCEPTORS,

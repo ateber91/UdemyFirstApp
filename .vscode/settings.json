@@ -13,7 +13,6 @@
     "workbench.editor.showTabs": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.sideBar.location": "right",
-    "editor.formatOnSave": true,
     "workbench.editor.openSideBySideDirection": "down",
     "workbench.tree.indent": 12,
     "workbench.tree.renderIndentGuides": "always",
@@ -24,11 +23,13 @@
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,
     "prettier.printWidth": 80,
-    "prettier.useTabs": false,
+    "prettier.useTabs": true,
     "vtools.autoHideBottomBar": false,
     "vtools.autoHideSideBar": true,
     "diffEditor.renderSideBySide": false,
     "prettier.disableLanguages": [
         "html"
     ],
+    "workbench.editor.enablePreview": false,
+    "editor.formatOnSave": true
 }
